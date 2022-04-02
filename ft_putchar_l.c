@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf_test.c                                      :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrolle <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/01 16:10:49 by hrolle            #+#    #+#             */
-/*   Updated: 2022/04/01 16:14:46 by hrolle           ###   ########.fr       */
+/*   Created: 2021/12/16 20:47:47 by hrolle            #+#    #+#             */
+/*   Updated: 2021/12/16 20:50:41 by hrolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
 #include "ft_printf.h"
 
-int main(int argc, char **argv)
+int	ft_putchar_l(char c)
 {
-	(void)argc;
-	printf("Original :\n");
-	printf(argv[1], argv[2], atoi(argv[3]));
-	printf("\nFt version :\n");
-	ft_printf(argv[1], argv[2], atoi(argv[3]));
-	return (0);
+	write(0, &c, 1);
+	return (1);
 }

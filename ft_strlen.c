@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf_test.c                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrolle <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/01 16:10:49 by hrolle            #+#    #+#             */
-/*   Updated: 2022/04/01 16:14:46 by hrolle           ###   ########.fr       */
+/*   Created: 2021/11/04 08:47:40 by hrolle            #+#    #+#             */
+/*   Updated: 2021/11/05 21:32:45 by hrolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
 #include "ft_printf.h"
 
-int main(int argc, char **argv)
+size_t	ft_strlen(const char *s)
 {
-	(void)argc;
-	printf("Original :\n");
-	printf(argv[1], argv[2], atoi(argv[3]));
-	printf("\nFt version :\n");
-	ft_printf(argv[1], argv[2], atoi(argv[3]));
-	return (0);
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

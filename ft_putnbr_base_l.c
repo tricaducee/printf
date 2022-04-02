@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf_test.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrolle <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/01 16:10:49 by hrolle            #+#    #+#             */
-/*   Updated: 2022/04/01 16:14:46 by hrolle           ###   ########.fr       */
+/*   Created: 2021/12/16 21:16:37 by hrolle            #+#    #+#             */
+/*   Updated: 2021/12/16 22:07:04 by hrolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
 #include "ft_printf.h"
 
-int main(int argc, char **argv)
+int	putnbr_base(unsigned int n, char *str, int size, int i)
 {
-	(void)argc;
-	printf("Original :\n");
-	printf(argv[1], argv[2], atoi(argv[3]));
-	printf("\nFt version :\n");
-	ft_printf(argv[1], argv[2], atoi(argv[3]));
-	return (0);
+	unsigned int	nb;
+
+	nb = n;
+	if (n >= size)
+		putnbr_base(n / size, str, size, i);
+	i += ft_putchar_l(str[nb % size]);
+	return (i);
+}
+
+int	ft_putnbr_base_l(int n, char *str)
+{
+	if (n < 0)
+	{
+		ft_putchar_l('-');
+		return (putnbr_base(n * -1, str, ft_strlen(str), 0) + 1);
+
+	}
+	return (putnbr_base(n, str, ft_strlen(str), 0));
 }

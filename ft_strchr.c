@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf_test.c                                      :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hrolle <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/01 16:10:49 by hrolle            #+#    #+#             */
-/*   Updated: 2022/04/01 16:14:46 by hrolle           ###   ########.fr       */
+/*   Created: 2021/11/04 08:54:51 by hrolle            #+#    #+#             */
+/*   Updated: 2021/11/05 23:31:18 by hrolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
 #include "ft_printf.h"
 
-int main(int argc, char **argv)
+char	*ft_strchr(const char *s, int c)
 {
-	(void)argc;
-	printf("Original :\n");
-	printf(argv[1], argv[2], atoi(argv[3]));
-	printf("\nFt version :\n");
-	ft_printf(argv[1], argv[2], atoi(argv[3]));
+	while (*s)
+	{
+		if (*s == ((char)c))
+			return ((char *)s);
+		s++;
+	}
+	if (c == 0)
+		return ((char *)s);
 	return (0);
 }
